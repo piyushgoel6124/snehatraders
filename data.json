@@ -1,0 +1,370 @@
+{
+  "school_uniforms": [
+    {
+      "title": "Charcoal Grey Trousers",
+      "desc": "Classic straight-fit school trousers in charcoal grey. Made with reinforced knees for extra durability.",
+      "images": [
+        "assets/images/trousers_main.png",
+        "assets/images/trousers_pocket.png",
+        "assets/images/trousers_back.png"
+      ],
+      "tags": [
+        "trousers",
+        "charcoal",
+        "grey",
+        "school",
+        "uniform",
+        "boys"
+      ],
+      "keywords": [
+        "school trousers",
+        "boys pants",
+        "formal uniform"
+      ],
+      "skuid": "SU-CGT-004"
+    },
+    {
+      "title": "Grey V-Neck Sweater",
+      "desc": "A warm and soft grey v-neck sweater made from a fine-gauge acrylic knit. Perfect for layering over shirts.",
+      "images": [
+        "assets/images/sweater_main.png",
+        "assets/images/sweater_neck.png",
+        "assets/images/sweater_cuff.png"
+      ],
+      "tags": [
+        "sweater",
+        "grey",
+        "v-neck",
+        "school",
+        "winter",
+        "unisex"
+      ],
+      "keywords": [
+        "school sweater",
+        "winter uniform",
+        "unisex sweater"
+      ],
+      "skuid": "SU-GVS-003"
+    },
+    {
+      "title": "Navy Blue Pleated Skirt",
+      "desc": "Durable and wrinkle-resistant navy blue pleated skirt made from a poly-viscose blend. Features an adjustable waistband.",
+      "images": [
+        "assets/images/skirt_main.png",
+        "assets/images/skirt_detail.png",
+        "assets/images/skirt_fabric.png"
+      ],
+      "tags": [
+        "skirt",
+        "navy blue",
+        "pleated",
+        "school",
+        "uniform",
+        "girls"
+      ],
+      "keywords": [
+        "school skirt",
+        "girls uniform",
+        "pleated skirt"
+      ],
+      "skuid": "SU-NPS-002"
+    },
+    {
+      "skuid": "SU-og-flag",
+      "title": "Orange flag",
+      "desc": "orange flag",
+      "images": [
+        "https://imgcdn.media/epimg/150/70282397.jpg",
+        "https://imgcdn.media/epimg/150/70282399.jpg"
+      ],
+      "tags": [
+        "flag",
+        "orange"
+      ],
+      "keywords": [
+        "flag"
+      ],
+      "variations": {}
+    },
+    {
+      "title": "School Tie and Belt Combo",
+      "desc": "A matching set including a striped polyester school tie and a black faux leather belt with a simple buckle.",
+      "images": [
+        "assets/images/combo_main.png",
+        "assets/images/tie_detail.png",
+        "assets/images/belt_buckle.png"
+      ],
+      "tags": [
+        "tie",
+        "belt",
+        "combo",
+        "accessory",
+        "school",
+        "unisex"
+      ],
+      "keywords": [
+        "school tie",
+        "uniform belt",
+        "school accessories"
+      ],
+      "skuid": "SU-TBC-005"
+    },
+    {
+      "skuid": "SU-WOC-001",
+      "title": "White Shirt with Orange Cuffs",
+      "desc": "Premium quality full-sleeve cotton shirt with stylish orange cuffs. Breathable and comfortable for all-day school wear.",
+      "images": [
+        "assets/images/w1.jpg",
+        "assets/images/w2.jpg",
+        "assets/images/w3.jpg"
+      ],
+      "tags": [
+        "cotton",
+        "white",
+        "orange",
+        "school",
+        "uniform",
+        "full-sleeve"
+      ],
+      "keywords": [
+        "school uniform",
+        "designer shirt",
+        "boys uniform"
+      ],
+      "variations": {}
+    }
+  ],
+  "track_suits": [
+    {
+      "title": "Black Cotton Fleece Track Suit",
+      "desc": "Comfortable and warm track suit made from a soft cotton fleece blend. Features a zip-up hoodie and elasticated joggers.",
+      "images": [
+        "assets/images/ts_black_main.png",
+        "assets/images/ts_black_hoodie.png",
+        "assets/images/ts_black_jogger.png"
+      ],
+      "tags": [
+        "track suit",
+        "black",
+        "cotton",
+        "fleece",
+        "winter",
+        "lounge"
+      ],
+      "keywords": [
+        "cotton tracksuit",
+        "winter suit",
+        "loungewear"
+      ],
+      "skuid": "TS-BCF-002"
+    },
+    {
+      "title": "Kids' Red and White Track Suit",
+      "desc": "A fun and durable track suit for kids with red jacket and white striped pants. Made from easy-to-clean polyester.",
+      "images": [
+        "assets/images/ts_kids_main.png",
+        "assets/images/ts_kids_jacket.png",
+        "assets/images/ts_kids_pants.png"
+      ],
+      "tags": [
+        "track suit",
+        "kids",
+        "red",
+        "white",
+        "sports",
+        "playwear"
+      ],
+      "keywords": [
+        "kids tracksuit",
+        "childrens sportswear",
+        "play suit"
+      ],
+      "skuid": "TS-KRW-004"
+    },
+    {
+      "title": "Pro Performance Track Suit",
+      "desc": "High-performance track suit with moisture-wicking fabric and four-way stretch. Designed for serious athletes.",
+      "images": [
+        "assets/images/ts_pro_main.png",
+        "assets/images/ts_pro_fabric.png",
+        "assets/images/ts_pro_zip.png"
+      ],
+      "tags": [
+        "track suit",
+        "performance",
+        "athletic",
+        "gym",
+        "training",
+        "unisex"
+      ],
+      "keywords": [
+        "performance wear",
+        "training suit",
+        "professional tracksuit"
+      ],
+      "skuid": "TS-PFP-005"
+    },
+    {
+      "skuid": "TS-RBM-001",
+      "title": "Royal Blue Microfiber Track Suit",
+      "desc": "Lightweight and breathable microfiber track suit in a vibrant royal blue. Ideal for sports and athletic activities.",
+      "images": [
+        "https://placehold.co/100x100/e2e8f0/333333?text=Image+Not+Found"
+      ],
+      "tags": [
+        "track suit",
+        "blue",
+        "microfiber",
+        "sports",
+        "athletic",
+        "unisex"
+      ],
+      "keywords": [
+        "sports tracksuit",
+        "gym wear",
+        "running suit"
+      ],
+      "variations": {}
+    },
+    {
+      "title": "Women's Heather Grey Track Suit",
+      "desc": "A stylish and comfortable track suit for women in a heather grey color. Tapered pants and a fitted jacket for a modern look.",
+      "images": [
+        "assets/images/ts_grey_main.png",
+        "assets/images/ts_grey_jacket_front.png",
+        "assets/images/ts_grey_pants_side.png"
+      ],
+      "tags": [
+        "track suit",
+        "grey",
+        "heather",
+        "women",
+        "fitness",
+        "casual"
+      ],
+      "keywords": [
+        "womens tracksuit",
+        "jogging suit",
+        "casual wear"
+      ],
+      "skuid": "TS-WHG-003"
+    }
+  ],
+  "industrial_wear": [
+    {
+      "title": "High-Visibility Safety Vest",
+      "desc": "Fluorescent yellow safety vest with 2-inch wide reflective strips. Lightweight mesh fabric for breathability.",
+      "images": [
+        "assets/images/vest_main.png",
+        "assets/images/vest_reflective.png",
+        "assets/images/vest_worn.png"
+      ],
+      "tags": [
+        "safety",
+        "vest",
+        "high-visibility",
+        "reflective",
+        "construction",
+        "industrial"
+      ],
+      "keywords": [
+        "safety vest",
+        "hi-vis vest",
+        "construction wear"
+      ],
+      "skuid": "IW-HVV-001"
+    },
+    {
+      "title": "Steel-Toe Work Boots",
+      "desc": "Durable leather work boots with a certified steel toe cap and slip-resistant outsole. Padded collar for comfort.",
+      "images": [
+        "assets/images/boots_main.png",
+        "assets/images/boots_sole.png",
+        "assets/images/boots_toe.png"
+      ],
+      "tags": [
+        "boots",
+        "work",
+        "steel-toe",
+        "safety",
+        "leather",
+        "industrial"
+      ],
+      "keywords": [
+        "work boots",
+        "safety shoes",
+        "industrial footwear"
+      ],
+      "skuid": "IW-STB-002"
+    },
+    {
+      "title": "Flame-Resistant Coveralls",
+      "desc": "Navy blue flame-resistant (FR) coveralls providing full-body protection. Made from treated cotton for safety and comfort.",
+      "images": [
+        "assets/images/coverall_main.png",
+        "assets/images/coverall_fr_tag.png",
+        "assets/images/coverall_pocket.png"
+      ],
+      "tags": [
+        "coveralls",
+        "flame-resistant",
+        "FR",
+        "safety",
+        "workwear",
+        "industrial"
+      ],
+      "keywords": [
+        "FR coveralls",
+        "safety workwear",
+        "protective clothing"
+      ],
+      "skuid": "IW-FRC-003"
+    },
+    {
+      "title": "Heavy-Duty Work Gloves",
+      "desc": "Leather palm work gloves with reinforced fingertips and a safety cuff for wrist protection. Ideal for material handling.",
+      "images": [
+        "assets/images/gloves_main.png",
+        "assets/images/gloves_palm.png",
+        "assets/images/gloves_cuff.png"
+      ],
+      "tags": [
+        "gloves",
+        "work",
+        "heavy-duty",
+        "leather",
+        "safety",
+        "industrial"
+      ],
+      "keywords": [
+        "work gloves",
+        "safety gloves",
+        "leather gloves"
+      ],
+      "skuid": "IW-HDG-004"
+    },
+    {
+      "title": "Industrial Hard Hat",
+      "desc": "White high-density polyethylene (HDPE) hard hat with a 4-point ratchet suspension for a secure and comfortable fit.",
+      "images": [
+        "assets/images/hardhat_main.png",
+        "assets/images/hardhat_suspension.png",
+        "assets/images/hardhat_side.png"
+      ],
+      "tags": [
+        "hard hat",
+        "safety",
+        "helmet",
+        "construction",
+        "head protection",
+        "industrial"
+      ],
+      "keywords": [
+        "safety helmet",
+        "construction hard hat",
+        "industrial helmet"
+      ],
+      "skuid": "IW-IHH-005"
+    }
+  ]
+}

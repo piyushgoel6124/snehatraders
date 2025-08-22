@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Sneha Traders Catalogue</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #083749;
+            color: #333;
+        }
+        .main-header {
+            height: 8vh;
+            background-color: #083749;
+            margin-top: 2vh;
+        }
+        .content-background {
+            background: linear-gradient(to bottom, #083749, #1384AF);
+            min-height: calc(100vh - 8vh);
+            padding: 20px;
+        }
+        .text-primary {
+            color: #edc58c;
+        }
+        .bg-primary {
+            background-color: #edc58c;
+        }
+        .bg-primary:hover {
+            background-color: #f0d9b3;
+        }
+        .bg-secondary {
+            background-color: #1384AF;
+        }
+        .border-primary {
+            border-color: #edc58c;
+        }
+        .hidden {
+            display: none;
+        }
+        .product-tree-item {
+            transition: background-color 0.2s ease;
+        }
+        .product-tree-item:hover {
+            background-color: #e5f3f8;
+        }
+        .image-preview-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .image-preview {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+        .image-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .image-preview .remove-image {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #dc2626; /* Red */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .tag-item, .keyword-item {
+            display: inline-flex;
+            align-items: center;
+            background-color: #e5e7eb; /* Gray-200 */
+            padding: 2px 8px;
+            border-radius: 9999px; /* Full rounded */
+            margin-right: 5px;
+            margin-bottom: 5px;
+            font-size: 0.875rem; /* text-sm */
+        }
+        .remove-tag, .remove-keyword {
+            margin-left: 5px;
+            color: #9ca3af; /* Gray-400 */
+            cursor: pointer;
+        }
+        .remove-tag:hover, .remove-keyword:hover {
+            color: #dc2626; /* Red-600 */
+        }
+        .variation-group {
+            border: 1px solid #d1d5db; /* Gray-300 */
+            border-radius: 0.375rem; /* rounded-md */
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .variation-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .variation-item input {
+            flex-grow: 1;
+            margin-right: 0.5rem;
+        }
+        .remove-variation-item {
+             background-color: #ef4444; /* Red-500 */
+             color: white;
+             border: none;
+             border-radius: 0.25rem; /* rounded */
+             padding: 0.25rem 0.5rem;
+             cursor: pointer;
+             font-size: 0.75rem; /* text-xs */
+        }
+        .remove-variation-item:hover {
+             background-color: #dc2626; /* Red-600 */
+        }
+        .remove-variation-group {
+             background-color: #ef4444; /* Red-500 */
+             color: white;
+             border: none;
+             border-radius: 0.25rem; /* rounded */
+             padding: 0.25rem 0.5rem;
+             cursor: pointer;
+             font-size: 0.875rem; /* text-sm */
+             margin-top: 0.5rem;
+        }
+        .remove-variation-group:hover {
+             background-color: #dc2626; /* Red-600 */
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header Section -->
+    <header class="flex justify-between items-center main-header px-4 sm:px-8">
+        <div class="flex items-center space-x-3">
+            <img src="assets/images/SNEHA TRADERS.png" alt="Sneha Traders Logo" style="height: 7vh; object-fit: contain;">
+        </div>
+        <a href="index.html" class="text-base sm:text-lg font-semibold text-primary transition: color 0.2s;">Back to Catalogue</a>
+    </header>
+
+    <div class="content-background flex flex-col items-center justify-start min-h-[calc(100vh-10vh)] pt-4">
+        <!-- Password Protection Overlay -->
+        <div id="password-overlay" class="absolute inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50">
+            <div class="bg-white p-6 sm:p-8 rounded-lg shadow-lg text-center w-11/12 max-w-md">
+                <h2 class="text-xl sm:text-2xl font-bold mb-4">Admin Login</h2>
+                <input type="password" id="admin-password" placeholder="Enter password" class="w-full p-2 sm:p-3 border border-gray-300 rounded-md mb-4">
+                <button id="login-button" class="w-full bg-primary text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-bold hover:bg-opacity-90 transition duration-200">Login</button>
+                <p id="login-error" class="text-red-500 mt-2 hidden">Incorrect password.</p>
+            </div>
+        </div>
+
+        <!-- Main Admin Content (Hidden by default) -->
+        <div id="admin-content" class="container mx-auto p-4 sm:p-6 lg:p-8 bg-white rounded-lg shadow-lg w-full max-w-6xl hidden">
+            <h1 class="text-2xl sm:text-3xl font-bold mb-6 text-primary text-center">Manage Product Catalog</h1>
+
+            <div class="flex flex-col lg:flex-row gap-6">
+                <!-- Product Tree (Left Column) -->
+                <div class="lg:w-1/3 flex flex-col">
+                    <div class="bg-secondary text-white p-4 rounded-t-lg">
+                        <h2 class="text-xl font-semibold">Product Catalog</h2>
+                    </div>
+                    <div id="product-tree" class="bg-white border border-gray-300 rounded-b-lg p-4 overflow-y-auto max-h-[70vh]">
+                        <!-- Product tree will be dynamically loaded here -->
+                        <p class="text-gray-500 text-center py-4">Loading products...</p>
+                    </div>
+                    <button id="add-category-button" class="mt-4 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg font-semibold transition duration-200 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                        Add New Category
+                    </button>
+                </div>
+
+                <!-- Product Form (Right Column) -->
+                <div class="lg:w-2/3 flex flex-col">
+                    <div class="bg-secondary text-white p-4 rounded-t-lg">
+                        <h2 class="text-xl font-semibold">Product Details</h2>
+                    </div>
+                    <div id="product-form-container" class="bg-white border border-gray-300 rounded-b-lg p-4 sm:p-6 overflow-y-auto max-h-[70vh]">
+                        <form id="product-form" class="space-y-4">
+                            <input type="hidden" id="editing-category" value="">
+                            <input type="hidden" id="editing-skuid" value="">
+
+                            <div>
+                                <label for="product-title" class="block text-sm font-medium text-gray-700 mb-1">Product Title *</label>
+                                <input type="text" id="product-title" class="w-full p-2 border border-gray-300 rounded-md" required>
+                            </div>
+
+                            <div>
+                                <label for="product-skuid" class="block text-sm font-medium text-gray-700 mb-1">SKU ID *</label>
+                                <input type="text" id="product-skuid" class="w-full p-2 border border-gray-300 rounded-md" required>
+                                <p class="text-xs text-gray-500 mt-1">Unique identifier for this product (e.g., SU-WOC-001)</p>
+                            </div>
+
+                            <div>
+                                <label for="product-description" class="block text-sm font-medium text-gray-700 mb-1">Description *</label>
+                                <textarea id="product-description" class="w-full p-2 border border-gray-300 rounded-md h-24" required></textarea>
+                            </div>
+
+                            <div>
+                                <label for="product-category" class="block text-sm font-medium text-gray-700 mb-1">Category *</label>
+                                <select id="product-category" class="w-full p-2 border border-gray-300 rounded-md" required>
+                                    <option value="">-- Select a Category --</option>
+                                    <!-- Options will be populated by JS -->
+                                </select>
+                            </div>
+
+                            <!-- Tags Section -->
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Tags</label>
+                                <div class="flex flex-wrap gap-2 mb-2" id="tags-display">
+                                    <!-- Tags will be displayed here -->
+                                </div>
+                                <div class="flex">
+                                    <input type="text" id="new-tag" class="flex-grow p-2 border border-gray-300 rounded-l-md" placeholder="Add a tag">
+                                    <button type="button" id="add-tag-button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-r-md transition duration-200">Add</button>
+                                </div>
+                            </div>
+
+                            <!-- Keywords Section -->
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Keywords</label>
+                                <div class="flex flex-wrap gap-2 mb-2" id="keywords-display">
+                                    <!-- Keywords will be displayed here -->
+                                </div>
+                                <div class="flex">
+                                    <input type="text" id="new-keyword" class="flex-grow p-2 border border-gray-300 rounded-l-md" placeholder="Add a keyword">
+                                    <button type="button" id="add-keyword-button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-r-md transition duration-200">Add</button>
+                                </div>
+                            </div>
+
+                            <!-- Images Section -->
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Images *</label>
+                                <div class="image-preview-container" id="image-previews">
+                                    <!-- Image previews will be added here -->
+                                </div>
+                                <div class="mt-2">
+                                    <label for="new-image-url" class="block text-sm font-medium text-gray-700 mb-1">Add Image URL</label>
+                                    <div class="flex">
+                                        <input type="text" id="new-image-url" class="flex-grow p-2 border border-gray-300 rounded-l-md" placeholder="https://example.com/image.jpg">
+                                        <button type="button" id="add-image-button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-r-md transition duration-200">Add</button>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1">First image is the main product image.</p>
+                            </div>
+
+                            <!-- Variations Section -->
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Variations</label>
+                                <div id="variations-container">
+                                    <!-- Variation groups will be added here -->
+                                </div>
+                                <button type="button" id="add-variation-group-button" class="mt-2 bg-gray-200 hover:bg-gray-300 text-gray-800 py-1 px-3 rounded-md text-sm transition duration-200 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+                                    </svg>
+                                    Add Variation Type
+                                </button>
+                            </div>
+
+                            <!-- Form Action Buttons -->
+                            <div class="flex flex-wrap gap-3 pt-4">
+                                <button type="submit" id="save-product-button" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-bold transition duration-200 flex-1 min-w-[120px]">Save Product</button>
+                                <button type="button" id="clear-form-button" class="bg-gray-400 hover:bg-gray-500 text-white px-6 py-2 rounded-lg font-bold transition duration-200 flex-1 min-w-[120px]">Clear Form</button>
+                                <button type="button" id="delete-product-button" class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg font-bold transition duration-200 flex-1 min-w-[120px] hidden">Delete Product</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Download JSON Button -->
+            <div class="text-center mt-8">
+                <button id="download-json-button" class="bg-purple-600 hover:bg-purple-700 text-white px-6 sm:px-8 py-3 rounded-lg font-bold text-lg sm:text-xl transition duration-200 flex items-center justify-center mx-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Download Updated data.json
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-800 text-white py-4 px-4 sm:px-8 text-center text-sm">
+        <p>&copy; <span id="copyright-year"></span> Sneha Traders</p>
+        <p>Last updated: <span id="last-updated-date"></span></p>
+    </footer>
+
+    <script src="js/add.js"></script>
+</body>
+</html>

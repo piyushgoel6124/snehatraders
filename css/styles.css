@@ -1,0 +1,568 @@
+/*css/styles.css*/
+/* General Body Styles */
+body {
+    font-family: 'Busorama Std Medium', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Theme Colors */
+:root {
+    --dark-cyan: #063343;
+    --golden-beige: #CDA66F;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--dark-cyan);
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: var(--golden-beige);
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #333;
+    padding: 0.5rem 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--golden-beige);
+}
+
+/* Filter Bar */
+/* Filter Bar */
+.filter-bar {
+    background-color: var(--dark-cyan);
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #042533;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.filter-bar .search-and-toggle {
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-bar input[type="text"] {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid var(--golden-beige);
+    border-radius: 25px; /* More rounded */
+    font-size: 1rem;
+    background-color: #fff;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-bar input[type="text"]:focus {
+    border-color: var(--golden-beige);
+    box-shadow: 0 0 0 3px rgba(205, 166, 111, 0.25);
+}
+
+.filter-bar .filter-toggle-button {
+    background-color: var(--golden-beige);
+    color: var(--dark-cyan);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-bar .filter-toggle-button:hover {
+    background-color: #b38f5c;
+    transform: translateY(-2px);
+}
+
+.filter-bar .filter-icon {
+    font-size: 1.2rem;
+}
+
+.filter-options {
+    display: none; /* Hidden by default */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 800px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 15px;
+}
+
+.filter-options.active {
+    display: flex; /* Show when active */
+}
+
+.filter-options select {
+    padding: 8px 12px;
+    border: 1px solid var(--golden-beige);
+    border-radius: 20px;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #333;
+    outline: none;
+}
+
+.filter-options .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    background-color: #fff;
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--golden-beige);
+    color: #333;
+}
+
+.filter-options .checkbox-group label {
+    margin-right: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.filter-options .checkbox-group input[type="checkbox"] {
+    margin-right: 5px;
+    accent-color: var(--golden-beige);
+}
+
+/* Main Content Area */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+}
+
+.category-section {
+    margin-bottom: 40px;
+}
+
+.category-section h2 {
+    color: var(--dark-cyan);
+    border-bottom: 3px solid var(--golden-beige);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+.product-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.product-carousel::-webkit-scrollbar {
+    height: 8px;
+}
+
+.product-carousel::-webkit-scrollbar-thumb {
+    background-color: var(--golden-beige);
+    border-radius: 10px;
+}
+
+.product-carousel::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+.product-card {
+    flex: 0 0 auto;
+    width: 150px; /* Smaller width for icon-like cards */
+    height: 180px; /* Fixed height */
+    margin-right: 20px;
+    border: 1px solid #ddd; /* Subtle border */
+    border-radius: 10px; /* Slightly less rounded than main container */
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content */
+    justify-content: center; /* Center content vertically */
+    text-align: center;
+    padding: 10px;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+    width: 80px; /* Smaller image size */
+    height: 80px;
+    object-fit: contain; /* Ensure full image is visible */
+    display: block;
+    margin-bottom: 10px;
+    border: none; /* Remove border */
+}
+
+.product-card-info {
+    padding: 5px; /* Less padding */
+    flex-grow: 0; /* Don't grow */
+    display: block; /* Revert to block for text */
+}
+
+.product-card-info h3 {
+    margin: 0;
+    color: var(--dark-cyan);
+    font-size: 1rem; /* Smaller font size */
+    white-space: normal; /* Allow wrapping */
+    overflow: visible; /* Allow full text */
+    text-overflow: unset; /* Unset ellipsis */
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+    /* Removed display: flex; justify-content: center; align-items: center; padding: 20px; from here */
+    /* These will be applied via JS when modal is opened, or handled by modal-content margin: auto */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 30px; /* More padding */
+    border: none; /* Remove border */
+    width: 90%; /* Wider on larger screens */
+    max-width: 1000px; /* Max width for modal */
+    border-radius: 15px; /* More rounded */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* More gap */
+    animation: fadeIn 0.3s ease-out; /* Fade in animation */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.modal-image-gallery {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.modal-main-image img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+.modal-thumbnails {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    overflow-x: auto;
+}
+
+.modal-thumbnails img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.modal-thumbnails img.active,
+.modal-thumbnails img:hover {
+    border-color: var(--dark-cyan);
+}
+
+.modal-details {
+    flex: 1;
+    min-width: 300px;
+}
+
+.modal-details h2 {
+    color: var(--dark-cyan);
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.modal-details p {
+    margin-bottom: 10px;
+}
+
+.modal-details span {
+    font-weight: bold;
+    color: var(--dark-cyan);
+}
+
+.modal-details .tags span {
+    background-color: var(--golden-beige);
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-right: 5px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: var(--dark-cyan);
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 40px;
+    border-radius: 8px;
+}
+
+.contact-section h2 {
+    color: var(--golden-beige);
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.contact-info a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: var(--golden-beige);
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Add Item Page Specific Styles */
+.add-item-container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.add-item-container h2 {
+    color: var(--dark-cyan);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.add-item-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.add-item-form input[type="text"],
+.add-item-form textarea,
+.add-item-form select,
+.add-item-form input[type="file"] {
+    width: calc(100% - 22px); /* Account for padding and border */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.add-item-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.add-item-form .image-upload-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.add-item-form .image-upload-group div {
+    flex: 1 1 calc(50% - 15px); /* Two columns with gap */
+    min-width: 200px;
+}
+
+.add-item-form button {
+    background-color: var(--dark-cyan);
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.add-item-form button:hover {
+    background-color: #042533; /* Slightly darker cyan */
+}
+
+.export-csv-button {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 20px;
+    background-color: var(--golden-beige);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.export-csv-button:hover {
+    background-color: #b38f5c; /* Slightly darker golden beige */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    .filter-bar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .product-card {
+        width: 100%; /* Full width on small screens */
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .product-carousel {
+        flex-wrap: wrap; /* Allow wrapping on smaller screens if needed */
+        justify-content: center;
+    }
+
+    .modal-content {
+        flex-direction: column;
+        width: 95%;
+        padding: 15px;
+    }
+
+    .modal-image-gallery,
+    .modal-details {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .add-item-form .image-upload-group div {
+        flex: 1 1 100%; /* Single column on small screens */
+    }
+}

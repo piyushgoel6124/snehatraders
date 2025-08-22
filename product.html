@@ -1,0 +1,383 @@
+<!-- Product Details -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Sneha Traders</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #083749;
+            color: #333;
+        }
+        .main-header {
+            height: 8vh;
+            background-color: #083749;
+            margin-top: 2vh;
+        }
+        .content-background {
+            background: linear-gradient(to bottom, #083749, #1384AF);
+            min-height: calc(100vh - 8vh);
+            padding: 20px;
+        }
+        /* --- Changes for Square Aspect Ratio with Flexible Width --- */
+        /* Main container: Responsive width, fixed 1:1 aspect ratio */
+        .product-image-container {
+            width: 100%; /* Takes full width of its parent */
+            aspect-ratio: 1 / 1; /* Height will always equal width */
+            position: relative;
+            overflow: hidden;
+            /* Add background color to fill potential gaps with contain */
+            background-color: #f0f0f0;
+            /* Rounded corners and shadow from original */
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* shadow-md */
+        }
+        .product-image-container img {
+            /* Fill the container */
+            width: 100%;
+            height: 100%;
+            /* object-fit: contain ensures full image is visible */
+            object-fit: contain;
+            /* Center the image */
+            object-position: center;
+            /* Remove absolute positioning */
+            position: static;
+            top: auto;
+            left: auto;
+        }
+        /* Thumbnail container: Minor adjustments for layout */
+        .thumbnail-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            overflow-x: auto;
+            padding-bottom: 10px; /* For scrollbar */
+            /* Ensure container has a defined height for thumbnails */
+            align-items: flex-start; /* Align items to the top */
+        }
+        .thumbnail-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        .thumbnail-container::-webkit-scrollbar-thumb {
+            background-color: #edc58c;
+            border-radius: 4px;
+        }
+        .thumbnail-container::-webkit-scrollbar-track {
+            background-color: #083749;
+        }
+        /* Thumbnails: Fixed width/height, contain image */
+        .thumbnail {
+            /* Fixed size for thumbnails */
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            cursor: pointer;
+            /* Border styling */
+            border: 2px solid transparent;
+            transition: border-color 0.2s;
+            /* Use contain to show full thumbnail */
+            object-fit: contain;
+            object-position: center;
+            background-color: #f0f0f0; /* Background for thumbnails too */
+            border-radius: 0.375rem; /* rounded-md */
+        }
+        .thumbnail.active {
+            border-color: #edc58c;
+        }
+        /* --- End of changes --- */
+        .back-link {
+            color: #edc58c;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: #f0d9b3;
+        }
+        .text-primary {
+            color: #edc58c;
+        }
+        .bg-primary {
+            background-color: #edc58c;
+        }
+        .bg-primary:hover {
+            background-color: #f0d9b3;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header Section -->
+    <header class="flex justify-between items-center main-header px-4 sm:px-8">
+        <div class="flex items-center space-x-3">
+            <img src="assets/images/SNEHA TRADERS.png" alt="Sneha Traders Logo" style="height: 7vh; object-fit: contain;">
+        </div>
+        <a href="index.html" class="text-base sm:text-lg font-semibold back-link">Back to Catalogue</a>
+    </header>
+
+    <div class="content-background">
+        <div class="container mx-auto p-4 sm:p-6 lg:p-8 bg-white rounded-lg shadow-lg">
+            <div id="product-detail-container" class="flex flex-col lg:flex-row gap-6 sm:gap-8">
+                <!-- Product Image Gallery (Left Side on Desktop) -->
+                <div class="lg:w-1/3">
+                    <!-- This container will now be a square -->
+                    <div class="product-image-container">
+                        <img id="main-product-image" src="https://placehold.co/600x400/e2e8f0/333333?text=Main+Product+Image+(Non-Square)" alt="Main Product Image">
+                    </div>
+                    <div id="thumbnail-gallery" class="thumbnail-container">
+                        <img class="thumbnail active" src="https://placehold.co/150x100/e2e8f0/333333?text=Thumb1+(Wider)" alt="Thumbnail 1">
+                        <img class="thumbnail" src="https://placehold.co/100x150/e2e8f0/333333?text=Thumb2+(Taller)" alt="Thumbnail 2">
+                        <img class="thumbnail" src="https://placehold.co/120x120/e2e8f0/333333?text=Thumb3+(Square)" alt="Thumbnail 3">
+                        <img class="thumbnail" src="https://placehold.co/200x80/e2e8f0/333333?text=Thumb4+(Very+Wider)" alt="Thumbnail 4">
+                    </div>
+                </div>
+
+                <!-- Product Details (Right Side on Desktop) -->
+                <div class="lg:w-2/3">
+                    <h1 id="product-title" class="text-3xl sm:text-4xl font-bold mb-2 text-primary">Product Title Placeholder</h1>
+                    <p id="product-sku" class="text-base sm:text-lg text-gray-600 mb-4">SKU ID: <span class="font-semibold">SKU-XXX-001</span></p>
+
+                    <div class="mb-6">
+                        <h2 class="text-xl sm:text-2xl font-semibold mb-2">Description</h2>
+                        <p id="product-description" class="text-gray-700 leading-relaxed text-sm sm:text-base">
+                            This is a placeholder for the product description. It will contain detailed information about the product, its features, benefits, and any other relevant specifications. This section will be populated dynamically from the `data.json` file.
+                        </p>
+                    </div>
+
+                    <div id="product-variations" class="mb-6">
+                        <h2 class="text-xl sm:text-2xl font-semibold mb-2">Variations</h2>
+                        <p class="text-gray-700 text-sm sm:text-base">Sizes: S, M, L, XL</p>
+                        <p class="text-gray-700 text-sm sm:text-base">Colors: Red, Blue, Green</p>
+                    </div>
+
+                    <div id="product-tags" class="mb-6">
+                        <h2 class="text-xl sm:text-2xl font-semibold mb-2">Tags</h2>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs sm:text-sm">Tag1</span>
+                            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs sm:text-sm">Tag2</span>
+                            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs sm:text-sm">Tag3</span>
+                        </div>
+                    </div>
+
+                    <!-- Enquiry/Contact Section -->
+                    <div class="mt-8">
+                        <h2 class="text-xl sm:text-2xl font-semibold mb-4">Enquire Now</h2>
+                        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                            <a href="https://wa.me/9412177387" target="_blank" class="flex-1 text-center bg-green-500 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg font-bold hover:bg-green-600 transition duration-300 text-sm sm:text-base">
+                                WhatsApp Us
+                            </a>
+                            <a href="mailto:snehastores.sg@gmail.com" class="flex-1 text-center bg-blue-500 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg font-bold hover:bg-blue-600 transition duration-300 text-sm sm:text-base">
+                                Email Us
+                            </a>
+                            <a href="tel:+919412177387" class="flex-1 text-center bg-gray-500 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg font-bold hover:bg-gray-600 transition duration-300 text-sm sm:text-base">
+                                Call Us: 9412177387
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products Section -->
+            <div id="related-products" class="mt-10 sm:mt-12">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-primary">Similar Products</h2>
+                <div class="flex flex-wrap gap-3 sm:gap-4 justify-center">
+                    <div class="w-40 sm:w-48 product-card bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+                        <img src="https://placehold.co/300x200/e2e8f0/333333?text=Related+1+(Wider)" alt="Related Product 1" class="w-full h-auto object-contain p-2">
+                        <div class="p-3 sm:p-4 flex-grow flex items-end pb-2">
+                            <h3 class="font-semibold text-sm sm:text-md">Related Product 1</h3>
+                        </div>
+                    </div>
+                    <div class="w-40 sm:w-48 product-card bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+                        <img src="https://placehold.co/200x300/e2e8f0/333333?text=Related+2+(Taller)" alt="Related Product 2" class="w-full h-auto object-contain p-2">
+                        <div class="p-3 sm:p-4 flex-grow flex items-end pb-2">
+                            <h3 class="font-semibold text-sm sm:text-md">Related Product 2</h3>
+                        </div>
+                    </div>
+                    <div class="w-40 sm:w-48 product-card bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+                         <img src="https://placehold.co/250x250/e2e8f0/333333?text=Related+3+(Square)" alt="Related Product 3" class="w-full h-auto object-contain p-2">
+                        <div class="p-3 sm:p-4 flex-grow flex items-end pb-2">
+                            <h3 class="font-semibold text-sm sm:text-md">Related Product 3</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const sku = urlParams.get('sku');
+
+            if (sku) {
+                fetchProductDetails(sku);
+            } else {
+                document.getElementById('product-detail-container').innerHTML = '<p class="text-center text-red-500">Product SKU not found in URL.</p>';
+            }
+        });
+
+        async function fetchProductDetails(sku) {
+            try {
+                const response = await fetch('data.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+
+                let product = null;
+                for (const categoryKey in data) {
+                    const foundProduct = data[categoryKey].find(p => p.skuid === sku);
+                    if (foundProduct) {
+                        product = foundProduct;
+                        break;
+                    }
+                }
+
+                if (product) {
+                    displayProductDetails(product);
+                    fetchRelatedProducts(product.tags, product.skuid, data);
+                } else {
+                    document.getElementById('product-detail-container').innerHTML = `<p class="text-center text-red-500">Product with SKU ID "${sku}" not found.</p>`;
+                }
+
+            } catch (error) {
+                console.error("Error fetching product details:", error);
+                document.getElementById('product-detail-container').innerHTML = `<p class="text-center text-red-500">Error loading product details. Please try again later.</p>`;
+            }
+        }
+
+        function displayProductDetails(product) {
+            document.getElementById('product-title').textContent = product.title;
+            document.getElementById('product-sku').innerHTML = `SKU ID: <span class="font-semibold">${product.skuid}</span>`;
+            document.getElementById('product-description').textContent = product.desc; // Fix: Use 'desc'
+
+            const mainImage = document.getElementById('main-product-image');
+            const thumbnailGallery = document.getElementById('thumbnail-gallery');
+
+            // Set main image (first image in the array)
+            const mainImageUrl = product.images && product.images.length > 0 ? product.images[0] : 'https://placehold.co/600x600/e2e8f0/333333?text=Image+Not+Found';
+            mainImage.src = mainImageUrl;
+            mainImage.alt = product.title;
+
+            // Clear existing thumbnails
+            thumbnailGallery.innerHTML = '';
+
+            // Add thumbnails (all images in the array)
+            if (product.images && product.images.length > 0) {
+                product.images.forEach((imgSrc, index) => {
+                    const img = document.createElement('img');
+                    img.src = imgSrc;
+                    img.alt = `Thumbnail ${index + 1}`;
+                    img.classList.add('thumbnail');
+                    if (index === 0) {
+                        img.classList.add('active');
+                    }
+                    img.addEventListener('click', () => {
+                        mainImage.src = imgSrc;
+                        document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                        img.classList.add('active');
+                    });
+                    img.onerror = function() {
+                        this.src = 'https://placehold.co/80x80/e2e8f0/333333?text=Error';
+                        this.alt = 'Thumbnail Load Error';
+                    };
+                    thumbnailGallery.appendChild(img);
+                });
+            } else {
+                const img = document.createElement('img');
+                img.src = 'https://placehold.co/80x80/e2e8f0/333333?text=No+Images';
+                img.alt = 'No Images Thumbnail';
+                img.classList.add('thumbnail', 'active');
+                thumbnailGallery.appendChild(img);
+            }
+
+            // Display variations
+            const variationsContainer = document.getElementById('product-variations');
+            variationsContainer.innerHTML = '<h2 class="text-xl sm:text-2xl font-semibold mb-2">Variations</h2>';
+            if (product.variations && Object.keys(product.variations).length > 0) {
+                for (const key in product.variations) {
+                    const p = document.createElement('p');
+                    p.classList.add('text-gray-700', 'text-sm', 'sm:text-base');
+                    p.textContent = `${key.charAt(0).toUpperCase() + key.slice(1)}: ${product.variations[key].join(', ')}`;
+                    variationsContainer.appendChild(p);
+                }
+            } else {
+                const p = document.createElement('p');
+                p.classList.add('text-gray-700', 'text-sm', 'sm:text-base');
+                p.textContent = 'No variations available.';
+                variationsContainer.appendChild(p);
+            }
+
+            // Display tags
+            const tagsContainer = document.getElementById('product-tags');
+            tagsContainer.innerHTML = '<h2 class="text-xl sm:text-2xl font-semibold mb-2">Tags</h2><div class="flex flex-wrap gap-2"></div>';
+            const tagsDiv = tagsContainer.querySelector('div');
+            if (product.tags && product.tags.length > 0) {
+                product.tags.forEach(tag => {
+                    const a = document.createElement('a');
+                    a.href = `index.html?tag=${encodeURIComponent(tag)}`;
+                    a.classList.add('bg-gray-200', 'text-gray-700', 'px-3', 'py-1', 'rounded-full', 'text-xs', 'sm:text-sm', 'hover:bg-gray-300', 'transition', 'duration-200');
+                    a.textContent = tag;
+                    tagsDiv.appendChild(a);
+                });
+            } else {
+                const p = document.createElement('p');
+                p.classList.add('text-gray-700', 'text-sm', 'sm:text-base');
+                p.textContent = 'No tags available.';
+                tagsDiv.appendChild(p);
+            }
+        }
+
+        function fetchRelatedProducts(tags, currentSku, allData) {
+            const relatedProductsContainer = document.getElementById('related-products');
+            const relatedProductsDiv = relatedProductsContainer.querySelector('.flex-wrap');
+            relatedProductsDiv.innerHTML = '';
+
+            const relatedProducts = [];
+            const processedSkus = new Set();
+
+            for (const categoryKey in allData) {
+                allData[categoryKey].forEach(p => {
+                    if (p.skuid !== currentSku && !processedSkus.has(p.skuid)) {
+                        const commonTags = p.tags ? p.tags.filter(tag => tags.includes(tag)) : [];
+                        if (commonTags.length > 0) {
+                            relatedProducts.push(p);
+                            processedSkus.add(p.skuid);
+                        }
+                    }
+                });
+            }
+
+            const productsToShow = relatedProducts.slice(0, 4);
+
+            if (productsToShow.length > 0) {
+                productsToShow.forEach(product => {
+                    const imageUrl = product.images && product.images.length > 0 ? product.images[0] : 'https://placehold.co/200x200/e2e8f0/333333?text=Image+Not+Found';
+                    const productCardHtml = `
+                        <a href="product.html?sku=${product.skuid}" class="w-40 sm:w-48 product-card bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+                            <img src="${imageUrl}"
+                                 alt="${product.title}"
+                                 class="w-full h-auto object-contain p-2"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/200x200/e2e8f0/333333?text=Image+Not+Found';">
+                            <div class="p-3 sm:p-4 flex-grow flex items-end pb-2">
+                                <h3 class="font-semibold text-sm sm:text-md" title="${product.title}">${product.title}</h3>
+                            </div>
+                        </a>
+                    `;
+                    relatedProductsDiv.insertAdjacentHTML('beforeend', productCardHtml);
+                });
+            } else {
+                const p = document.createElement('p');
+                p.classList.add('text-gray-700', 'text-center', 'w-full', 'text-sm', 'sm:text-base');
+                p.textContent = 'No similar products found.';
+                relatedProductsDiv.appendChild(p);
+            }
+        }
+    </script>
+
+</body>
+</html>
