@@ -1,67 +1,107 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sneha Traders - Premium School Uniforms</title>
+    <title>Sneha Traders - Product Catalog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Custom scrollbar for a cleaner look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        /* Basic font styling */
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
+            font-family: 'Inter', sans-serif;
+            background-color: #083749; /* Solid background for the entire page */
         }
-        header {
-            background-color: #004d99;
-            color: white;
-            padding: 20px;
-            font-size: 24px;
+        .main-header {
+            height: 8vh;
+            background-color: #083749;
+            margin-top: 2vh; /* Add margin to push it down */
         }
-        .hero {
-            background: url('uniform-banner.jpg') no-repeat center center/cover;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 32px;
-            font-weight: bold;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        .content-background {
+            background: linear-gradient(to bottom, #083749, #1384AF); /* Gradient for content area */
+            min-height: calc(100vh - 8vh); /* Ensure it fills remaining height */
         }
-        .content {
-            padding: 20px;
+        /* Simple animation for cards on hover */
+        .product-card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
-        .cta {
-            margin-top: 20px;
-            background-color: #ffcc00;
-            color: #333;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-size: 20px;
-            border-radius: 5px;
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
         }
-        footer {
-            background-color: #004d99;
-            color: white;
-            padding: 10px;
-            margin-top: 20px;
+        .text-primary {
+            color: #edc58c;
         }
     </style>
 </head>
-<body>
-    <header>
-        Sneha Traders - Premium Quality School Uniforms
+<body class="text-gray-800">
+
+    <!-- Header Section -->
+    <header class="flex justify-between items-center main-header px-8">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3">
+            <img src="assets/images/SNEHA TRADERS.png" alt="Sneha Traders Logo" style="height: 7vh; object-fit: contain;">
+        </div>
+        <!-- Contact Link -->
+        <a href="#contact" class="text-lg font-semibold text-primary transition: color 0.2s;">CONTACT US</a>
     </header>
-    <div class="hero">
-        Elevate Your School Attire with Quality & Comfort
+
+    <!-- Filter Bar -->
+    <div class="bg-gray-100 py-4 px-8 shadow-md">
+        <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <button id="filter-toggle-button" class="bg-primary text-white px-4 py-2 rounded-lg font-semibold hover:bg-opacity-90 transition duration-200 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+                Filters
+            </button>
+        </div>
+        <div id="filter-options" class="filter-options hidden mt-4 container mx-auto bg-white p-4 rounded-lg shadow-inner flex flex-col sm:flex-row gap-4">
+            <div class="flex-1">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Tags</label>
+                <div class="checkbox-group flex flex-wrap gap-2 max-h-24 overflow-y-auto p-2 border border-gray-300 rounded-md bg-gray-50" id="tag-filters">
+                    <!-- Tag checkboxes will be populated by JS -->
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="content">
-        <h2>Wholesale & Retail School Uniforms</h2>
-        <p>We manufacture and supply top-notch school uniforms with the finest fabric and craftsmanship.</p>
-        <a href="tel:+919876543210" class="cta">Call Now</a>
+
+    <div class="content-background">
+        <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+            <!-- Main Content Area -->
+            <main id="product-catalog">
+                <!-- Product sections will be dynamically inserted here by JavaScript -->
+            </main>
+        </div>
     </div>
-    <footer>
-        &copy; 2025 Sneha Traders | All Rights Reserved
+
+
+    <section id="contact" class="contact-section bg-primary text-white py-8 px-8">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold mb-4 text-center">Contact Us</h2>
+            <div class="contact-info text-lg text-center">
+                <p class="mb-2">Phone: <a href="tel:+919258814580" class="underline hover:text-gray-200">9258814580</a>, <a href="tel:+919412177387" class="underline hover:text-gray-200">9412177387</a></p>
+                <p class="mb-2">Email: <a href="mailto:snehastores.sg@gmail.com" class="underline hover:text-gray-200">snehastores.sg@gmail.com</a></p>
+                <p class="mb-2">WhatsApp: <a href="https://wa.me/919412177387" target="_blank" class="underline hover:text-gray-200">Chat on WhatsApp</a></p>
+                <p class="mb-2">Location: <a href="https://maps.app.goo.gl/RQHgWdp7oP9eBshr8" target="_blank" class="underline hover:text-gray-200">View on Google Maps</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-4 px-8 text-center">
+        <p>&copy; <span id="copyright-year"></span> Sneha Traders</p>
+        <p>Last updated: <span id="last-updated-date"></span></p>
     </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
