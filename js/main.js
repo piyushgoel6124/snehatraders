@@ -1,17 +1,7 @@
 //main.js
 document.addEventListener('DOMContentLoaded', () => {
     const productCatalog = document.getElementById('product-catalog'); // Changed from 'catalogue'
-    const tagFiltersContainer = document.getElementById('tag-filters');
-    const filterToggleButton = document.getElementById('filter-toggle-button');
-    const filterOptionsDiv = document.getElementById('filter-options');
-
     let allItems = [];
-    let filteredItems = [];
-
-    // Toggle filter options visibility
-    filterToggleButton.addEventListener('click', () => {
-        filterOptionsDiv.classList.toggle('hidden'); // Changed from 'active' to 'hidden' to match Tailwind CSS
-    });
 
     // Function to load items from data.json
     async function loadItems() {
@@ -30,40 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     allItems.push(item);
                 });
             }
-
-            filteredItems = [...allItems];
-            populateTagFilters(); // Only populate tag filters
-            // Removed applyFiltersFromUrl as per user request to not rely on URL params for initial load
-            applyFilters(); // Apply filters on initial load
+            renderCatalogue(); // Render the catalogue after loading items
         } catch (error) {
             console.error("Error loading product data:", error);
             document.getElementById('product-catalog').innerHTML = `<p class="text-center text-red-500">Error loading product catalog. Please try again later.</p>`;
         }
-    }
-
-    // Populate only tag filters
-    function populateTagFilters() {
-        const tags = new Set();
-
-        allItems.forEach(item => {
-            if (item.tags) {
-                item.tags.forEach(tag => tags.add(tag.trim()));
-            }
-        });
-
-        // Populate Tag Checkboxes
-        tagFiltersContainer.innerHTML = '';
-        Array.from(tags).sort().forEach(tag => {
-            if (tag) {
-                const div = document.createElement('div');
-                div.classList.add('checkbox-item', 'flex', 'items-center'); // Added flex and items-center for alignment
-                div.innerHTML = `
-                    <input type="checkbox" id="tag-${tag}" value="${tag}" class="mr-2 rounded border-gray-300 text-primary focus:ring-primary">
-                    <label for="tag-${tag}" class="text-gray-700">${tag}</label>
-                `;
-                tagFiltersContainer.appendChild(div);
-            }
-        });
     }
 
     // Render the catalogue
@@ -119,24 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
             </section>
         `;
     }
-
-    // Apply filters
-    function applyFilters() {
-        const selectedTags = Array.from(tagFiltersContainer.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
-
-        filteredItems = allItems.filter(item => {
-            // Check if the item has all the selected tags
-            const matchesTags = selectedTags.length === 0 || (item.tags && selectedTags.every(tag => item.tags.includes(tag)));
-            return matchesTags;
-        });
-        renderCatalogue();
-    }
-
-    // Removed applyFiltersFromUrl as per user request to not rely on URL params for initial load
-    // If tag filtering from URL is desired, it would need to be re-implemented here.
-
-    // Event listeners for filters
-    tagFiltersContainer.addEventListener('change', applyFilters); // Apply filters when any tag checkbox changes
 
     // Footer dynamic dates
     document.getElementById('copyright-year').textContent = new Date().getFullYear();
