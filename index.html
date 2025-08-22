@@ -48,7 +48,7 @@
 <body class="text-gray-800">
 
     <!-- Header Section -->
-    <header class="flex justify-between items-center main-header px-8">
+    <header class="flex justify-between items-center main-header px-8 max-w-7xl mx-auto">
         <!-- Logo -->
         <div class="flex items-center space-x-3">
             <img src="assets/images/SNEHA TRADERS.png" alt="Sneha Traders Logo" style="height: 7vh; object-fit: contain;">
@@ -58,8 +58,8 @@
     </header>
 
     <!-- Filter Bar -->
-    <div class="bg-gray-100 py-4 px-8 shadow-md">
-        <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="bg-gray-100 py-4 px-8 shadow-md max-w-7xl mx-auto">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
             <button id="filter-toggle-button" class="bg-primary text-white px-4 py-2 rounded-lg font-semibold hover:bg-opacity-90 transition duration-200 flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
                 Filters
@@ -76,7 +76,7 @@
     </div>
 
     <div class="content-background">
-        <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-7xl">
             <!-- Main Content Area -->
             <main id="product-catalog">
                 <!-- Product sections will be dynamically inserted here by JavaScript -->
@@ -86,7 +86,7 @@
 
 
     <section id="contact" class="contact-section bg-primary text-white py-8 px-8">
-        <div class="container mx-auto">
+        <div class="container mx-auto max-w-7xl">
             <h2 class="text-3xl font-bold mb-4 text-center">Contact Us</h2>
             <div class="contact-info text-lg text-center">
                 <p class="mb-2">Phone: <a href="tel:+919258814580" class="underline hover:text-gray-200">9258814580</a>, <a href="tel:+919412177387" class="underline hover:text-gray-200">9412177387</a></p>
@@ -97,7 +97,7 @@
         </div>
     </section>
 
-    <footer class="bg-gray-800 text-white py-4 px-8 text-center">
+    <footer class="bg-gray-800 text-white py-4 px-8 text-center max-w-7xl mx-auto">
         <p>&copy; <span id="copyright-year"></span> Sneha Traders</p>
         <p>Last updated: <span id="last-updated-date"></span></p>
     </footer>

@@ -205,6 +205,7 @@ main {
     padding-bottom: 15px;
     padding-left: 5px;
     padding-right: 5px;
+    gap: 20px; /* Add gap for spacing between cards */
 }
 
 .product-carousel::-webkit-scrollbar {
@@ -222,9 +223,10 @@ main {
 
 .product-card {
     flex: 0 0 auto;
-    width: 150px; /* Smaller width for icon-like cards */
+    flex-basis: 150px; /* Smaller width for icon-like cards */
+    min-width: 120px;
+    max-width: 200px;
     height: 180px; /* Fixed height */
-    margin-right: 20px;
     border: 1px solid #ddd; /* Subtle border */
     border-radius: 10px; /* Slightly less rounded than main container */
     overflow: hidden;
@@ -540,14 +542,20 @@ footer p {
     }
 
     .product-card {
-        width: 100%; /* Full width on small screens */
-        margin-right: 0;
+        flex-basis: calc(50% - 10px); /* Two columns on small screens */
         margin-bottom: 20px;
     }
 
     .product-carousel {
-        flex-wrap: wrap; /* Allow wrapping on smaller screens if needed */
+        flex-wrap: wrap;
         justify-content: center;
+        gap: 10px; /* Adjust gap for smaller screens */
+    }
+
+    @media (max-width: 480px) {
+        .product-card {
+            flex-basis: 100%; /* Single column on very small screens */
+        }
     }
 
     .modal-content {
